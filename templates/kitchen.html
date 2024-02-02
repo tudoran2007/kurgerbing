@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen</title>
+</head>
+<body>
+    <center><h1>Kitchen Panel</h1></center>
+    <center><h2>Current Order: <span id="ordernumber"></spanid></span> </h2></center>
+    <center><p>This order contains the following items:</p></center>
+        <center><p id="itemone"></p></center>
+            <center><p id="itemtwo"></p></center>
+                <center><p id="itemthree"></p></center>
+    <a href = "/nextkitchenorder">
+        <center><button>Next Order</button></center>
+    </a>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function update(){
+            $.get("/updatekitchen", function(data){
+                $("#ordernumber").html(data[0]);
+                $("#itemone").html(data[1]);
+                $("#itemtwo").html(data[2]);
+                $("#itemthree").html(data[3]);
+            });
+        }
+
+        update();
+
+        var intervalId = setInterval(function(){
+            update();
+        }, 5000);
+    </script>
+</body>
+</html>

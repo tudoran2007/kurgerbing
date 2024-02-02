@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Panel</title>
+</head>
+<body>
+    <center><h1>Orders</h1></center>
+
+    <center><h1 id="orders"></h2></center>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function update(){
+            $.get("/updateboard", function(data){
+                $("#orders").html(data);
+            });
+        }
+
+        update();
+
+        var intervalId = setInterval(function(){
+            update();
+        }, 10000);
+    </script>
+</body>
+</html>

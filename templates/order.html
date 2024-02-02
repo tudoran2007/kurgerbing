@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurger Bing</title>
+</head>
+<body>
+    <center><h2>Place your order</h2></center>
+    <center><p>Hello, {{name}}, what would you like to order today?</p></center>
+    <form action="/ordered" methods=["GET","POST"]>
+    <center><p>What is your table number?</p></center>
+    <center><input name = "tablenr" type = "text"></center>
+    <center><p>What would you like to order?</p></center>
+    <center><input name = "burgerone" type="text"></center>
+    <center><input name = "burgertwo" type="text"></center>
+    <center><input name = "burgerthree" type="text"></center>
+    <center><button type="submit">Order</button></center>
+    </form>
+</body>
+</html>
